@@ -1,0 +1,29 @@
+class Klasa(object):
+    def __init__(self):
+        self.n = 5
+
+    def drukuj(self):
+        print(str(self.n))
+
+    def zwieksz(self):
+        self.n = self.n + 2
+
+    def multi(self, a, b, *args):
+        wynik = a + b + args + a
+        print(wynik)
+
+    @staticmethod
+    def metoda_statyczna(n, *param):
+        print("Parametr: " + str(n))
+        lista = list(param)
+        print(lista[::2])  # Podaje elementy z parzystej pozycji w liście
+
+
+m = Klasa()
+m.drukuj()
+
+k = Klasa()
+k.zwieksz()
+k.drukuj()
+
+k.metoda_statyczna(1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10)
