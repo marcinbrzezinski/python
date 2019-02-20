@@ -12,6 +12,9 @@ future = m.make_future_dataframe(periods=10)
 
 forecast = m.predict(future)
 
-fig = m.plot(forecast)
+# fig = m.plot(forecast)
 
+# plt.show()
+
+fig = m.plot_components(forecast)
 plt.show()
