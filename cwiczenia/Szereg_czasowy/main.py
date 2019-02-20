@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('~/Pulpit/prophet/examples/example_yosemite_temps.csv')
 
-df['Date'] = df['ds'].apply(lambda x: parser.parse(x).date())
+df['Date'] = df['ds'].apply(lambda x: parser.parse(x).month)
 
 data = df.groupby(['Date'])['y'].agg('mean')        # mean - średnia
 
