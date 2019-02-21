@@ -19,7 +19,8 @@ def get_url(url):
             else:
                 return None
     except RequestException as err:  # obsluga błędu w adresie
-        print(str(err))
+        print(err)
+        print('Nieodpowiedni link')
 
 
 # print(get_url("https://www.nbp.pl/Kursy/KursyC.html"))
