@@ -64,9 +64,8 @@ def web_scraping(url):
         return None
     else:
         for i, li in enumerate(bs.select('td')):
-            # if i == 4:
-            print(i, li.text)
-            # return li.text.replace(' ', '').replace('\n', '').replace('s', '')
+            if i == 4:
+                return li.text.replace(' ', '').replace('\n', '').replace('s', '')
 
 
 def add_row(_df, row):
@@ -75,22 +74,20 @@ def add_row(_df, row):
     return _df.sort_index()
 
 
-# df = pd.DataFrame(columns=['date', 'value'])
-#
-# any_day = datetime.datetime.today().date()
-# working_day = True
-# dates_list = get_dates(10, any_day, working_day)
-#
-# for date in get_dates(10, any_day, working_day):
-#     value = web_scraping('https://coinmarketcap.com/historical/' + to_string(date))
-#     add_row(df, [date, value])
-#     print(date, value)
-#
-# print(df)
+df = pd.DataFrame(columns=['date', 'value'])
+
+any_day = datetime.datetime.today().date()
+working_day = True
+dates_list = get_dates(10, any_day, working_day)
+
+for date in get_dates(10, any_day, working_day):
+    value = web_scraping('https://coinmarketcap.com/historical/' + to_string(date))
+    add_row(df, [date, value])
+    print(date, value)
+
+print(df)
 
 # print(get_previous_day(any_day))
 # print(is_working_day(any_day), is_working_day(get_previous_day(any_day)))
 # print(to_string(any_day))
 # print(get_dates(10, any_day, working_day))
-
-web_scraping('https://coinmarketcap.com/historical/20180101')
